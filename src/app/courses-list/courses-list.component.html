@@ -1,0 +1,14 @@
+<ul>
+	<form #personForm="ngForm" (ngSubmit)="addPerson(personForm)">
+		<input required type="text" name="name" ngModel>
+		<input type="submit" placeholder="Add">
+	</form>
+	<div *ngFor="let person of persons | async">
+		<ngb-alert type="info" [dismissible]="false">
+			<h3>
+				<a>{{person.name}}</a>
+				<button (click)="removePerson(person.key)">Delete</button>
+			</h3>
+		</ngb-alert>
+	</div>
+</ul>
